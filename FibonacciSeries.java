@@ -13,11 +13,11 @@ public class FibonacciSeries {
 		int first = 0;
 		int second = 1;
 		
-		if(number == 0)
-		{ 
+		if(number == 0){ 
 			System.out.println("Please enter positive integer Number");
 			System.exit(0);
 		}
+		
 		System.out.print("Fibonacci Series for "+number +" is : [ ");
 		if(number == 1) {
 			System.out.println(first + " ]");
