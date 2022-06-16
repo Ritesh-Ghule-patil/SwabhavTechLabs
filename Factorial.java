@@ -9,18 +9,21 @@ public class Factorial {
 	
 		int number = sc.nextInt();
 		int find = number;
-		if(number < 0) 
-			number = number*-1;
 		int factorial=1;
-		
-		while(number>0) {
-			factorial *= number;
-			number--;
+		if(number>=0) {
+			while(number>0) {
+				factorial *= number;
+				number--;
+			}
 		}
-		if(find < 0) 
-			System.out.println("Factorial of "+ find + " is : "+ factorial*(-1));
-		
-		else
-			System.out.println("Factorial of "+ find + " is : "+ factorial);
+		else{
+			if(number<0) {
+				while(number<0) {
+					factorial *= number;
+					number++;
+				}
+			}
+		}
+		System.out.println("Factorial of "+ find + " is : "+ factorial);
 	}
 }
