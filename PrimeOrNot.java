@@ -11,24 +11,24 @@ public class PrimeOrNot {
 		if(number < 0) {
 			System.out.println("Please Enter the Positive integer");
 		}
-		if(number==0 || number ==1) {
+		else if(number==0 || number ==1) {
 			System.out.println(number + " is not a prime nor a composite number");
 		}
-		
-		int i=2;
-		boolean flag = false;
-		while(i*i <=number) {
-			if(number%i==0) {
-				flag = true;
-			}
-			i++;
-		}
-		if(flag==true) {
-			System.out.println(number +" : is not Prime number");
-
-		}
 		else {
-		System.out.println(number +" : is Prime number");
+			int i=2;
+			boolean flag = false;
+			while(i*i <=number) {
+				if(number%i==0) {
+					flag = true;
+				}
+				i++;
+			}
+			if(flag==true) {
+				System.out.println(number +" : is not Prime number");
+			}
+			else {
+			System.out.println(number +" : is Prime number");
+			}
 		}
 	}
 }
