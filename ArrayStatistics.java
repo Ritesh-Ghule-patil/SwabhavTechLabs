@@ -6,11 +6,7 @@ public class ArrayStatistics {
 	public static void main(String[] args) {
 		
 		int sum = 0;         // for Stroring sum of all array ele
-		float avarage = 0;   // for avarage
-		
 		boolean visited[] = new boolean[args.length];
-		
-		
 		int arr[] = new int[args.length];   // for converting String to int array
 		for(int i=0; i<arr.length; i++) {   // conversion of Array from String to int 
 			arr[i] = Integer.parseInt(args[i]);
@@ -19,16 +15,13 @@ public class ArrayStatistics {
 		System.out.println(Arrays.toString(arr));
 		
 		int min = arr[0];    //Stroring minimum Value
-		int max = arr[0];    //Stroring Maximium value
-		int median = arr[0]; // Stroring median
-		
+		int max = arr[0];    //Stroring Maximium value		
 		
 		for(int i=0; i<arr.length; i++) {
 			sum += arr[i];
 		}
 		
 		System.out.println("Sum of Array Elements are : "+ sum);
-				
 		System.out.println("Avarage of Array Elements are : "+ (float) sum/arr.length);
 		
 		for(int i=0; i<arr.length-1; i++) {   //finding min and max value from an array
