@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class BookCricketGame {
 	public static void main(String[] args) {
-		System.out.println("Welcome To BookCricketaGame !!!");
+		System.out.println("Welcome To BookCricketGame !!!");
 		System.out.println("Rules For The Game :");
 		System.out.println("** Assume a book of 300 pages");
 		System.out.println("1. Player1 Opens the book to read a page number (example 87)(randomly generated)");
