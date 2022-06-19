@@ -17,91 +17,163 @@ public class BookCricketGame {
 		
 		int play = 0;
 		
+		System.out.print("Enter 1 to Start Game and 0 for Exit : ");
+		Scanner sc = new Scanner(System.in);
+		play = sc.nextInt();
+		
+		System.out.print("Enter Player1 Name : ");
+		String player1 = sc.next();
+		System.out.print("Enter Player2 Name : ");
+		String player2 = sc.next();
 		do {
-			System.out.print("Enter 1 to Start Game and 0 for Exit : ");
-			Scanner sc = new Scanner(System.in);
-			play = sc.nextInt();
+			
 			if(play == 1) 
 			{
 				
-				System.out.print("Enter Player1 Name : ");
-				String player1 = sc.next();
-				System.out.print("Enter Player2 Name : ");
-				String player2 = sc.next();
 				
 				int p1Score = 0;
-				int round = 0;
+				int p1Round = 12;
 				int point = 0;
 				System.out.println("Player : "+player1);
 				Random rand = new Random();
 
-				do {
+				do 
+				{
 					System.out.print("Enter 1 TO Open Book : ");
-					round++;
 					int openBook = sc.nextInt();
 					if(openBook ==1) {
 						int pageNumber = rand.nextInt(301);
 						System.out.print("Page Number "+ pageNumber);
 						point = pageNumber % 7;
+						p1Round--;
 						System.out.print("\t \t  Point : "+point);
 						p1Score += point;
-						System.out.println("\t \t Score : "+p1Score);
+						System.out.print("\t \t Score : "+p1Score );
+						System.out.println("\t \t Rounds Left : "+ p1Round);
 					}
-					else {
+					else 
+					{
 						System.out.println("oops Wrong Input!!!");
 						System.out.println("Game Exited...!!!  Please Start Again");
 						System.exit(0);
 					}
 					
-				}while(point != 0);
-				
-				System.out.println(player1 +" Total Score : "+p1Score);
-				System.out.println(player1 +" Takes "+round + " Round \n");
-				
-				System.out.println(player2+" Needs "+ ++p1Score + " Score in " +round +" to WIN MATCH");
+				}while(point != 0 && p1Round>=1);
+
+				System.out.println("\n"+player1 +" Total Score : "+p1Score);
+				System.out.println(player1 +" Takes "+ ( 12-p1Round ) + " Round \n");
+				System.out.println("-----------------------------------------------------------------------------------------\n");
+
+				System.out.println(player2+" Needs "+ (p1Score+1) + " Score to WIN MATCH");
 				
 				int	p2Score = 0;
+				int p2Round=12;
 				System.out.println("Player : "+player2);
 				
-				do {
+				do 
+				{
+					if(p2Score > p1Score) 
+					{
+						break;
+					}
 					System.out.print("Enter 1 TO Open Book : ");
-					round--;
+					p2Round--;
 					int openBook = sc.nextInt();
-					if(openBook ==1) {
+					if(openBook ==1) 
+					{
 						int pageNumber = rand.nextInt(301);
 						System.out.print("Page Number "+ pageNumber);
 						point = pageNumber % 7;
 						System.out.print("\t \t  Point : "+point);
 						p2Score += point;
 						System.out.print("\t \t Score : "+p2Score);
-						System.out.println("\t \t Rounds Left : "+ round);
+						System.out.println("\t \t Rounds Left : "+ p2Round);
 					}
-					
-					else {
+					else 
+					{
 						System.out.println("oops Wrong Input!!!");
-						System.out.println("Game Exited...!!!  Please Start Again");
-						System.exit(0);
+						continue;
+//						System.out.println("Game Exited...!!!  Please Start Again");
+//						System.exit(0);
 					}
 					
-				}while(point != 0 && round>0);
+				}while(point != 0 && p2Round>=1);
 				
-				if(p1Score > p2Score)
-					System.out.println("\n"+player1 +" Win Match \n");
-				else
-					System.out.println("\n"+player2 +" Win Match \n");
+				System.out.println("\n"+player2 +" Total Score : "+p2Score);
+				System.out.println(player2 +" Takes "+ ( 12-p2Round ) + " Round \n");
+				System.out.println("-----------------------------------------------------------------------------------------");
+
+				if(p1Score > p2Score) 
+				{
+					System.out.println("\nCongratulation "+player1 +" You Won Match \n");
+					System.out.println("*****************************************************************************************\n");
+				}
+					
+				else if(p1Score == p2Score) 
+				{
+					if(p1Round>p2Round) 
+					{
+						System.out.println("\nCongratulation "+player1 +" You Won Match \n");
+					}
+					else if(p1Round < p2Round) 
+					{
+						System.out.println("\nCongratulation "+player2 +" You Won Match \n");
+					}
+					else 
+					{
+						System.out.println(player1 +" and "+player2+ " both take same round ans Score same point");
+						System.out.println("Match is Draw \n");
+					}
+					
+					System.out.println("*****************************************************************************************\n");
+				}
+				else {
+					System.out.println("\nCongratulation "+player2 +" You Won Match \n");
+					System.out.println("*****************************************************************************************\n");
+				}
 				
+				System.out.print("Do You want to play Again (y/n) :");
+				char choice = sc.next().charAt(0);
+				while(choice != 'n')
+				{
+					if(choice=='y')
+					{
+						System.out.println();
+						break;
+					}
+					if(choice=='n')
+					{
+						System.out.println("\nExitig.....!!!");
+						System.out.println("You can Start The Game Again");
+						System.out.println();
+
+						break;
+					}
+					else {
+						System.out.println("enter valid inpute");
+						System.out.print("Do You want to play Again (y/n) :");
+						choice = sc.next().charAt(0);
+						if(choice=='n') {
+							System.out.println("Exitig.....!!!");
+							System.out.println("You can Start The Game Again");
+							System.exit(0);
+						}
+						continue;
+					}
+				}
 			}
-			else if(play == 0) {
+			else if(play == 0)
+			{
 				System.out.println("Exitig.....!!!");
 				System.out.println("You can Start The Game Again");
 			}
-			else {
-				System.out.println("oops Wrong Input!!!");
-				System.out.println("Game Exited...!!!  Please Start Again");
-				System.exit(0);
+			else 
+			{
+				System.out.println("oops Wrong Input!!!\n3");
+				continue;
+//				System.out.println("Game Exited...!!!  Please Start Again");
+//				System.exit(0);
 			}
 		}while(play != 0);
-		
-		
 	}
 }
