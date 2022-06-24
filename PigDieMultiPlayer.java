@@ -27,8 +27,6 @@ public class PigDieMultiPlayer {
 		PigDieMultiPlayer p2 = new PigDieMultiPlayer();
 		p2.play(player2);
 		
-		p1.score=20;
-		p2.score=20;
 
 		if (p1.turn < p2.turn) {
 			System.out.println("\nCongratulations " + player1 + " You Won!!!👍👍👍👍 ");
