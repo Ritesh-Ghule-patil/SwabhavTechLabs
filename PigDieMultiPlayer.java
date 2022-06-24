@@ -26,6 +26,9 @@ public class PigDieMultiPlayer {
 		p1.play(player1);
 		PigDieMultiPlayer p2 = new PigDieMultiPlayer();
 		p2.play(player2);
+		
+		p1.score=20;
+		p2.score=20;
 
 		if (p1.turn < p2.turn) {
 			System.out.println("\nCongratulations " + player1 + " You Won!!!👍👍👍👍 ");
@@ -37,19 +40,19 @@ public class PigDieMultiPlayer {
 			System.out.println(player1 + " have taken " + p1.turn + " Turns \n");
 
 		} else {
-			System.out.println("Both Player taken " + p1.turn);
+			System.out.println("\nBoth Player taken " + p1.turn +" Turns");
 			if (p1.score > p2.score) {
 				System.out.println("\nCongratulations " + player1 + " You Won!!!👍👍👍👍 ");
 				System.out.println("Because Your Score is  " + p1.score);
 				System.out.println(player2 + " Score is " + p2.score + "\n");
 			}
-			if (p1.score < p2.score) {
+			else if(p1.score < p2.score) {
 				System.out.println("\nCongratulations " + player2 + " You Won!!!👍👍👍👍 ");
 				System.out.println("Because Your Score is  " + p2.score);
 				System.out.println(player1 + " Score is " + p1.score + "\n");
-			} else {
+			} else{
 				System.out.println("both player taken same Turn and score same point ");
-				System.out.println("Match is Absolutely Draw");
+				System.out.println("Match is Absolutely Draw \n");
 			}
 		}
 			
