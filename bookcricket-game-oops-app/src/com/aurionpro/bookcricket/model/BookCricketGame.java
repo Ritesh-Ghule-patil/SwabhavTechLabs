@@ -32,8 +32,10 @@ public class BookCricketGame {
 					printTurnDetails(player, turnScore);
 
 					if (turnScore == 0) {
-						System.out.println(players[0].getPlayerName() +" Scores : "+ players[0].getScore() + "in "+players[0].getRounds()+" Rounds");
-						System.out.println(players[1].getPlayerName() +" You Have a Target of : "+ players[0].getScore()+1);
+						System.out.println(players[0].getPlayerName() + " Scores : " + players[0].getScore() + " in "
+								+ players[0].getRounds() + " Rounds");
+						System.out.println(players[1].getPlayerName() + " You Have a Target of Score : "
+								+ (players[0].getScore() + 1));
 						System.out.println("\n*****************************************");
 
 					}
@@ -43,9 +45,8 @@ public class BookCricketGame {
 					continue;
 				}
 
-			} while (turnScore != 0);
+			} while (turnScore != 0 && players[0].getScore() >= players[1].getScore());
 		}
-
 	}
 
 	private void printTurnDetails(Player player, int turnScore) {
@@ -53,13 +54,12 @@ public class BookCricketGame {
 		System.out.println("Total Score is : " + player.getScore());
 		System.out.println("Total rounds are : " + player.getRounds());
 		System.out.println("-----------------------------------------");
-
 	}
 
 	public void whoIsWinner(Player[] players) {
 		Player winner;
-		System.out.println("Thank you for playing, Let's See the result");
-		if (players[0].getScore() < players[1].getScore()) {
+		System.out.println("\nThank you for playing, Let's See the result");
+		if (players[0].getScore() > players[1].getScore()) {
 			winner = players[0];
 		} else if (players[0].getScore() == players[1].getScore()) {
 
@@ -71,23 +71,22 @@ public class BookCricketGame {
 		} else {
 			winner = players[1];
 		}
-		matchSummary(players);	
-		System.out.println("Congratulation "+winner.getPlayerName() +" you wins!!!");
-
+		matchSummary(players);
+		System.out.println("Congratulation " + winner.getPlayerName() + " you wins!!!");
 	}
 
 	private void matchSummary(Player[] players) {
-		
+
 		System.out.println("Here is the Mtach Summary : ");
-		for(Player player : players) {
-			System.out.println("Player Name : "+player.getPlayerName());
-			System.out.println("Player Score is : " +player.getScore());
-			System.out.println("Rounds Taken are : "+ player.getRounds());
-			System.out.println("-----------------------------------------");
+		int no = 1;
+		for (Player player : players) {
+			System.out.println("Player" + no + " Name : " + player.getPlayerName());
+			System.out.println("Player" + no + " Score is : " + player.getScore());
+			System.out.println("Rounds" + no + " Taken are : " + player.getRounds());
+			no++;
+			System.out.println("------------------------------------");
 		}
-		System.out.println(players[1].getPlayerName() +" You Have a Target of : "+ players[0].getScore()+1);
+//		System.out.println(players[1].getPlayerName() +" You Have a Target of : "+ players[0].getScore()+1);
 	}
-	
-	
 
 }
