@@ -34,6 +34,5 @@ public class LinkedListMain {
 		ll.display();
 
 		
-		
 	}
 }
